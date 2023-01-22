@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+    
+    li {
+      float: left;
+      border-right:1px solid #bbb;
+    }
+    
+    li:last-child {
+      border-right: none;
+    }
+    
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+      background-color: #111;
+    }
+    
+    .active {
+      background-color: #047baa;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <ul>
+      <li><a class="active" href="./index.html">Home</a></li>
+      <li><a href="./credits.html">Credits</a></li>
+    </ul>
+    
+    </body>
+    <title>Countdown Timer</title>
+    <style>
+      body {
+        background-image: url(https://2.bp.blogspot.com/-C1lzrGQdHkM/T78dxRvrmBI/AAAAAAAAEHw/dYWj8zg6TIg/s1600/Hdhut.blogspot.com+%252835%2529.jpg);
+        background-size: cover;
+        color: #fff;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        font-size: 36px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px #000;
+      }
+      #timer {
+        font-size: 72px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 50px;
+        text-shadow: 2px 2px #000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Countdown until Orion and Emily's return</h1>
+    <div id="timer"></div>
+
+    <script>
+      // Set the date we're counting down to
+      var countDownDate = new Date("Apr 15, 2023 00:00:00").getTime();
+
+      // Update the count down every 1 second
+      var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes, and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="timer"
+        document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text 
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("timer").innerHTML = "Orion and Emily are home!";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
