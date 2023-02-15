@@ -65,6 +65,27 @@
         margin-top: 50px;
         text-shadow: 2px 2px #000;
       }
+      #timer2 {
+        font-size: 72px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 50px;
+        text-shadow: 2px 2px #000;
+      }
+      .progress {
+        width: 100%;
+        background-color: #ddd;
+      }
+
+      /* Style the progress bar */
+      .progress-bar {
+        height: 20px;
+        background-color: #4CAF50;
+        width: 0%;
+        text-align: center;
+        line-height: 20px;
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -99,6 +120,58 @@
           clearInterval(x);
           document.getElementById("timer").innerHTML = "Orion and Emily are home!";
         }
+      }, 1000);
+    </script>
+ <body>
+
+   <!-- Create the progress bar container -->
+   <div class="progress">
+     <div class="progress-bar" id="myBar">0%</div>
+   </div>
+
+   <script>
+     // Calculate the current progress as a percentage of the total time
+     var startDate = new Date("January 12, 2023");
+     var endDate = new Date("April 15, 2023");
+     var currentDate = new Date();
+     var totalMilliseconds = endDate - startDate;
+     var currentMilliseconds = currentDate - startDate;
+     var currentProgress = Math.floor((currentMilliseconds / totalMilliseconds) * 100);
+
+     // Update the progress bar width and text
+     var elem = document.getElementById("myBar");
+     elem.style.width = currentProgress + "%";
+     elem.innerHTML = currentProgress + "%";
+   </script>
+
+ </body>
+  <body>
+    <h1>Days since they left Cam all alone</h1>
+    <div id="timer2"></div>
+
+    <script>
+      // Set the date we're counting down to
+      var countFromDate = new Date("Jan 12, 2023 00:00:00").getTime();
+
+      // Update the count down every 1 second
+      var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = now - countFromDate;
+
+        // Time calculations for days, hours, minutes, and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="timer"
+        document.getElementById("timer2").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
       }, 1000);
     </script>
   </body>
